@@ -3,9 +3,12 @@ package com.david.dsashun;
 import java.util.Locale;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.david.dsashun.MainActivity.DummySectionFragment;
 
 /**
  * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -24,14 +27,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 		// getItem is called to instantiate the fragment for the given page.
 		// Return a DummySectionFragment (defined as a static inner class
 		// below) with the page number as its lone argument.
-		switch (position) {
-			case 0:
-				return new InboxFragment();
-			case 1:
-				return new FriendsFragment();
-
-		}
-		return null;
+		Fragment fragment = new DummySectionFragment();
+		Bundle args = new Bundle();
+		args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+		fragment.setArguments(args);
+		return fragment;
 	}
 
 	@Override
@@ -47,8 +47,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 		case 0:
 			return mContext.getString(R.string.title_section1).toUpperCase(l);
 		case 1:
-			return mContext.getString(R.string.title_section2).toUpperCase(l);
-		
+			return mContext.getString(R.string.title_section1).toUpperCase(l);
+		case 2:
+			return mContext.getString(R.string.title_section1).toUpperCase(l);
 		}
 		return null;
 	}
