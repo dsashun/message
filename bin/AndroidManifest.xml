@@ -9,35 +9,62 @@
         android:targetSdkVersion="18" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
+        android:name="com.david.dsashun.DsashunApplication"
         android:allowBackup="true"
         android:icon="@drawable/applogo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" android:name="DsashunApplication">
-            <activity
+        android:theme="@style/AppTheme" >
+        <activity
             android:name="com.david.dsashun.SplashActivity"
-            android:label="QuiqText" 
-            android:screenOrientation="portrait">
-            
-                <intent-filter>
+            android:label="QuiqText"
+            android:screenOrientation="portrait" >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            </activity>
-        <activity android:name="com.david.dsashun.LoginActivity" android:label="@string/title_activity_login" android:screenOrientation="portrait">
-        </activity><activity
+        </activity>
+        <activity
+            android:name="com.david.dsashun.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.david.dsashun.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
-            
-        </activity><activity android:name="com.david.dsashun.SignUpActivity" android:label="@string/title_activity_sign_up" android:parentActivityName="com.david.dsashunLoginActivity" android:screenOrientation="portrait">
         </activity>
-        
-        
+        <activity
+            android:name="com.david.dsashun.SignUpActivity"
+            android:label="@string/sign_up_text"
+            android:parentActivityName="com.david.dsashunLoginActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.david.dsashun.EditFriendsActivity"
+            android:label="@string/title_activity_edit_friends"
+            android:parentActivityName="com.david.dsashun.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.david.dsashun.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.david.dsashun.RecipientsActivity"
+            android:label="@string/title_activity_recipients"
+            android:parentActivityName="com.david.dsashun.MainActivity" android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.david.dsashun.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
